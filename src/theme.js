@@ -1,18 +1,22 @@
 import { experimental_extendTheme as extendTheme } from '@mui/material/styles'
 
 const theme = extendTheme({
+  note: {
+    appBarHeight: '48px',
+    boardBarHeight: '58px'
+  },
   colorSchemes: {
     light: {
       palette: {
         primary: {
-          main: '#FF5F00'
+          main: '#E3A5C7'
         }
       }
     },
     dark: {
       palette: {
         primary: {
-          main: '#FF5F00'
+          main: '#694F8E'
         }
       }
     }
