@@ -32,7 +32,7 @@ function Profile() {
           aria-expanded={open ? 'true' : undefined}
         >
           <Avatar
-            sx={{ width: 32, height: 32 }}
+            sx={{ width: 36, height: 36, border: '2px solid #fff' }}
             alt='KeinVu'
             src='https://i.pinimg.com/736x/1c/f4/18/1cf418398ac356a9e64ad4dc228c34d3.jpg'
           />

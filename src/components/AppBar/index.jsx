@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import Box from '@mui/material/Box'
 import Tooltip from '@mui/material/Tooltip'
 import Typography from '@mui/material/Typography'
@@ -9,13 +10,17 @@ import Schedule from './Menus/schedule'
 import Note from './Menus/note'
 import Profile from './Menus/profile'
 import Report from './Menus/report'
-import IconButton from '@mui/material/IconButton'
 import AddIcon from '@mui/icons-material/Add'
 import TextField from '@mui/material/TextField'
 import Badge from '@mui/material/Badge'
 import MailIcon from '@mui/icons-material/Mail'
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline'
+import Button from '@mui/material/Button'
+import InputAdornment from '@mui/material/InputAdornment'
+import SearchIcon from '@mui/icons-material/Search'
+import CloseIcon from '@mui/icons-material/Close'
 function AppBar() {
+  const [searchValue, setSearchValue] = useState('')
   return (
     <Box
       px={2}
@@ -26,7 +31,8 @@ function AppBar() {
         alignItems: 'center',
         justifyContent: 'space-between',
         gap: 2,
-        overflowX: 'auto'
+        overflowX: 'auto',
+        backgroundColor: 'primary.main'
       }}
     >
       <Box
@@ -36,7 +42,7 @@ function AppBar() {
           gap: 2
         }}
       >
-        <AppsIcon sx={{ color: 'primary.main', cursor: 'pointer' }} />
+        <AppsIcon sx={{ color: 'white', cursor: 'pointer' }} />
         <Box
           sx={{
             display: 'flex',
@@ -45,13 +51,13 @@ function AppBar() {
             cursor: 'pointer'
           }}
         >
-          <CommentIcon sx={{ color: 'primary.main' }} />
+          <CommentIcon sx={{ color: 'white' }} />
           <Typography
             variant='span'
             sx={{
               fontSize: '1.2rem',
               fontWeight: 'bold',
-              color: 'primary.main'
+              color: 'white'
             }}
           >
             Note
@@ -64,9 +70,17 @@ function AppBar() {
           <Note />
           <Report />
           <Tooltip title='Add note' placement='bottom' disableFocusListener>
-            <IconButton aria-label='add' color='primary'>
-              <AddIcon />
-            </IconButton>
+            <Button
+              variant='outlined'
+              startIcon={<AddIcon />}
+              sx={{
+                color: 'white',
+                border: '1px solid white',
+                '&:hover': { border: '1px solid white' }
+              }}
+            >
+              Create
+            </Button>
           </Tooltip>
         </Box>
       </Box>
@@ -74,18 +88,57 @@ function AppBar() {
         <TextField
           id='outlined-basic'
           label='Search...'
+          type='text'
           variant='outlined'
           size='small'
-          sx={{ minWidth: '120px' }}
+          value={searchValue}
+          onChange={(e) => setSearchValue(e.target.value)}
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position='start'>
+                <SearchIcon sx={{ color: 'white' }} />
+              </InputAdornment>
+            ),
+            endAdornment: (
+              <InputAdornment position='end'>
+                <CloseIcon
+                  fontSize='small'
+                  sx={{
+                    color: searchValue ? 'white' : 'transparent',
+                    cursor: 'pointer'
+                  }}
+                  onClick={() => setSearchValue('')}
+                />
+              </InputAdornment>
+            )
+          }}
+          sx={{
+            minWidth: '120px',
+            maxWidth: '180px',
+            '& label': { color: 'white' },
+            '& input': { color: 'white' },
+            '& label.Mui-focused': { color: 'white' },
+            '& .MuiOutlinedInput-root': {
+              '& fieldset': {
+                borderColor: 'white'
+              },
+              '&:hover fieldset': {
+                borderColor: 'white'
+              },
+              '&.Mui-focused fieldset': {
+                borderColor: 'white'
+              }
+            }
+          }}
         />
         <ModeSelect />
         <Tooltip title='Notifications' placement='bottom' disableFocusListener>
-          <Badge color='primary' variant='dot' sx={{ cursor: 'pointer' }}>
-            <MailIcon sx={{ color: 'primary.main' }} />
+          <Badge color='warning' variant='dot' sx={{ cursor: 'pointer' }}>
+            <MailIcon sx={{ color: 'white' }} />
           </Badge>
         </Tooltip>
         <Tooltip title='Help' placement='bottom' disableFocusListener>
-          <HelpOutlineIcon sx={{ cursor: 'pointer', color: 'primary.main' }} />
+          <HelpOutlineIcon sx={{ cursor: 'pointer', color: 'white' }} />
         </Tooltip>
         <Profile />
       </Box>

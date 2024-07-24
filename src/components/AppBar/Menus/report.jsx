@@ -10,7 +10,7 @@ import Typography from '@mui/material/Typography'
 import ContentCut from '@mui/icons-material/ContentCut'
 import ContentCopy from '@mui/icons-material/ContentCopy'
 import ContentPaste from '@mui/icons-material/ContentPaste'
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
+import AssessmentIcon from '@mui/icons-material/Assessment'
 import Cloud from '@mui/icons-material/Cloud'
 function Report() {
   const [anchorEl, setAnchorEl] = React.useState(null)
@@ -25,12 +25,13 @@ function Report() {
   return (
     <Box>
       <Button
+        sx={{ color: 'white' }}
         id='basic-button-reports'
         aria-controls={open ? 'basic-menu-reports' : undefined}
         aria-haspopup='true'
         aria-expanded={open ? 'true' : undefined}
         onClick={handleClick}
-        endIcon={<ExpandMoreIcon />}
+        startIcon={<AssessmentIcon />}
       >
         Report
       </Button>

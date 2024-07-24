@@ -10,7 +10,7 @@ import Typography from '@mui/material/Typography'
 import ContentCut from '@mui/icons-material/ContentCut'
 import ContentCopy from '@mui/icons-material/ContentCopy'
 import ContentPaste from '@mui/icons-material/ContentPaste'
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
+import EventNoteIcon from '@mui/icons-material/EventNote'
 import Cloud from '@mui/icons-material/Cloud'
 function Schedule() {
   const [anchorEl, setAnchorEl] = React.useState(null)
@@ -25,12 +25,13 @@ function Schedule() {
   return (
     <Box>
       <Button
+        sx={{ color: 'white' }}
         id='basic-button-schedule'
         aria-controls={open ? 'basic-menu-schedule' : undefined}
         aria-haspopup='true'
         aria-expanded={open ? 'true' : undefined}
         onClick={handleClick}
-        endIcon={<ExpandMoreIcon />}
+        startIcon={<EventNoteIcon />}
       >
         Schedule
       </Button>

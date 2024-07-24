@@ -9,14 +9,16 @@ const theme = extendTheme({
     light: {
       palette: {
         primary: {
-          main: '#E3A5C7'
+          main: '#E3A5C7',
+          dark: '#B76D9B'
         }
       }
     },
     dark: {
       palette: {
         primary: {
-          main: '#694F8E'
+          main: '#694F8E',
+          dark: '#4B3C6E'
         }
       }
     }
@@ -30,12 +32,12 @@ const theme = extendTheme({
             height: '8px'
           },
           '*::-webkit-scrollbar-thumb': {
-            backgroundColor: '#8772A4',
-            borderRadius: '8px',
+            backgroundColor: 'var(--mui-palette-primary-light)',
+            borderRadius: '4px',
             outline: 'none'
           },
           '*::-webkit-scrollbar-thumb:hover': {
-            backgroundColor: '#694F8E'
+            backgroundColor: 'var(--mui-palette-primary-dark)'
           }
         }
       }
@@ -43,35 +45,33 @@ const theme = extendTheme({
     MuiButton: {
       styleOverrides: {
         root: {
-          textTransform: 'none'
+          textTransform: 'none',
+          borderWidth: '1px',
+          '&:hover': { borderWidth: '2px' }
         }
       }
     },
     MuiInputLabel: {
       styleOverrides: {
-        root: ({ theme }) => ({
-          color: theme.palette.primary.main,
+        root: {
           fontSize: '0.875rem'
-        })
+        }
       }
     },
     MuiOutlinedInput: {
       styleOverrides: {
-        root: ({ theme }) => ({
-          color: theme.palette.primary.main,
+        root: {
           fontSize: '0.875rem',
-          '.MuiOutlinedInput-notchedOutline': {
-            borderColor: theme.palette.primary.light
-          },
-          '&:hover': {
-            '.MuiOutlinedInput-notchedOutline': {
-              borderColor: theme.palette.primary.main
-            }
-          },
           '& fieldset': {
             borderWidth: '1px !important'
+          },
+          '&:hover fieldset': {
+            borderWidth: '2px !important'
+          },
+          '&.Mui-focused fieldset': {
+            borderWidth: '2px !important'
           }
-        })
+        }
       }
     }
   }

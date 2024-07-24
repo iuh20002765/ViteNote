@@ -9,7 +9,10 @@ function BoardContent() {
           `calc(100vh - ${theme.note.appBarHeight} - ${theme.note.boardBarHeight})`,
         display: 'flex',
         alignItems: 'center',
-        backgroundColor: 'primary.main'
+        backgroundColor: (theme) =>
+          theme.palette.mode === 'dark'
+            ? '#2d3436'
+            : `${theme.palette.primary.light}`
       }}
     >
       Board Content
